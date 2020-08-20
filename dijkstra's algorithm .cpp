@@ -37,7 +37,8 @@ void djk(int G[max][max],int n,int s_node) //function implementation
       cost[i][j]=INFINITY;
    else
       cost[i][j]=G[i][j];
-   for(i=0;i<n;i++) {
+   for(i=0;i<n;i++) 
+   {
       distance[i]=cost[s_node][i];
       pred[i]=s_node;
       visited[i]=0;
@@ -45,28 +46,33 @@ void djk(int G[max][max],int n,int s_node) //function implementation
    distance[s_node]=0;
    visited[s_node]=1;
    count=1;
-   while(count<n-1) {
+   while(count<n-1) 
+   {
       mindistance=INFINITY;
       for(i=0;i<n;i++)
-         if(distance[i]<mindistance&&!visited[i]) {
+         if(distance[i]<mindistance&&!visited[i]) 
+      {
          mindistance=distance[i];
          nextnode=i;
       }
       visited[nextnode]=1;
       for(i=0;i<n;i++)
          if(!visited[i])
-      if(mindistance+cost[nextnode][i]<distance[i]) {
+      if(mindistance+cost[nextnode][i]<distance[i]) 
+      {
          distance[i]=mindistance+cost[nextnode][i];
          pred[i]=nextnode;
       }
       count++;
    }
    for(i=0;i<n;i++)
-   if(i!=s_node) {
+   if(i!=s_node) 
+   {
       cout<<"\nDistance of node"<<i<<" = "<<distance[i];
       cout<<"\nPath = "<<i;
       j=i;
-      do {
+      do 
+      {
          j=pred[j];
          cout<<" <- "<<j;
       }while(j!=s_node);
